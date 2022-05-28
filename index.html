@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Assign2 - API Session Management</title>
+  </head>
+  <body>
+    <div class="container">
+    <h2>Assignment2 - API Session Management</h2>
+    <h5>by Deepesh(2093372), Simranjeet(2102116), Navdeep(2024569) & Gurjeet(2103006)</h5>
+    <hr>
+    
+    <h3>Authentication.php</h3>
+    <p>
+        The following form accesses an API which will allow you to create a new session. It will return a JSON object with the username and password of the user which will be checked and verified within the API. If the credentials match, a new session will start else it will show an error message. 
+        <br>POST request is used to send the credentials to the API. 
+        <br>This could have also be done in a more structured manner where the list of users is stored in a database and upon succesful verification a session id and authentication key is generated and stored in the database becoming the token which is then sent to the client to grant access to it for future requests.
+        
+    </p>
+    <form action="Authenticate.php" method="POST">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Username (First Name)</label>
+          <input type="text" name="userName" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your username">
+          <small id="emailHelp" class="form-text text-muted">Example Simranjeet</small>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password(Student ID)</label>
+          <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+      <br><br><br>
+      <h4>Additional Features!</h4>
+      <a href="checkAuthenticationStatus.php" class="btn btn-secondary">Check Authentication Status</a><br>
+      <b>checkAuthenticationStatus.php</b> - To check if you are authenticated, visit this API. You do not need to pass any additional parameters as the check is conducted using the sessions. If you are authenticated, you would get a success message, if not try authenticating to see a success response.
+        <hr>
+      <form action="checkStudentName.php" method="GET">
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <button class="btn btn-outline-secondary" type="submit">Get Student Name</button>
+        </div>
+        <input type="text" class="form-control" name="studentId" placeholder="Student ID of team member" aria-label="" aria-describedby="basic-addon1">
+      </div>
+      </form>
+      <b>checkStudentName.php</b> <i>(you need to be logged in/authenticated)</i> - To check the name of a student from the team, visit this API. You need to pass the student ID of one of the four team members as a parameter. If the student ID is valid, you will get the name of the student, if not, you will get an error message.
+      <hr>
+      <!-- <form action="checkStudentName.php" method="GET">
+        <input type="text" class="form-control" name="studentId" placeholder="Student ID of team member">
+        <button type="submit" class="btn btn-secondary">Get Student Name</button>
+      </form> -->
+      <a href="logout.php" class="btn btn-secondary">Logout</a><br>
+      <b>logout.php</b> - Self explanatory. Destroys the session, effectively logging you out.
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>
